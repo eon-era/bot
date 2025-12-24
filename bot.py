@@ -1,4 +1,5 @@
 import os
+import sys
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -29,14 +30,14 @@ if __name__ == '__main__':
     if not TOKEN:
         print('Error: DISCORD_TOKEN not found in environment variables.')
         print('Please add your Discord bot token to the .env file.')
-        exit(1)
+        sys.exit(1)
     
     try:
         bot.run(TOKEN)
     except discord.LoginFailure:
         print('Error: Invalid Discord token.')
         print('Please check your DISCORD_TOKEN in the .env file.')
-        exit(1)
+        sys.exit(1)
     except Exception as e:
         print(f'Error: Failed to run bot: {e}')
-        exit(1)
+        sys.exit(1)
