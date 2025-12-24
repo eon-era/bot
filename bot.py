@@ -9,8 +9,10 @@ load_dotenv()
 # Get the bot token from environment variables
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-# Create bot instance with command prefix
-bot = commands.Bot(command_prefix='!', intents=discord.Intents.default())
+# Create bot instance with command prefix and required intents
+intents = discord.Intents.default()
+intents.message_content = True  # Required for reading message content
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():

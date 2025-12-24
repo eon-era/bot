@@ -33,19 +33,25 @@ pip install -r requirements.txt
 1. Go to the [Discord Developer Portal](https://discord.com/developers/applications)
 2. Click "New Application" and give it a name
 3. Go to the "Bot" section and click "Add Bot"
-4. Under the "Token" section, click "Copy" to copy your bot token
-5. Go to the "OAuth2" > "URL Generator" section
-6. Select the following scopes:
+4. Under the "Privileged Gateway Intents" section, enable "Message Content Intent"
+5. Under the "Token" section, click "Copy" to copy your bot token
+6. Go to the "OAuth2" > "URL Generator" section
+7. Select the following scopes:
    - `bot`
-7. Select the following bot permissions:
+8. Select the following bot permissions:
    - `Send Messages`
    - `Read Message History`
-8. Copy the generated URL and open it in your browser to invite the bot to your server
+9. Copy the generated URL and open it in your browser to invite the bot to your server
 
 ### 4. Configure the Bot Token
 
-1. Open the `.env` file in the project directory
-2. Replace `your_bot_token_here` with your actual Discord bot token:
+1. Copy the `.env.example` file to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+2. Open the `.env` file and replace `your_bot_token_here` with your actual Discord bot token:
 
 ```
 DISCORD_TOKEN=your_actual_bot_token_here
