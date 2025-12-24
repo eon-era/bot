@@ -30,4 +30,13 @@ if __name__ == '__main__':
         print('Error: DISCORD_TOKEN not found in environment variables.')
         print('Please add your Discord bot token to the .env file.')
         exit(1)
-    bot.run(TOKEN)
+    
+    try:
+        bot.run(TOKEN)
+    except discord.LoginFailure:
+        print('Error: Invalid Discord token.')
+        print('Please check your DISCORD_TOKEN in the .env file.')
+        exit(1)
+    except Exception as e:
+        print(f'Error: Failed to run bot: {e}')
+        exit(1)
